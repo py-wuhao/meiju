@@ -72,10 +72,10 @@ def main():
     video_list = pick(options, '选集按空格', indicator='=>', default_index=0, multi_select=True)
     video_list = [i[1] for i in video_list]
     t_list = []
+    print(video['link'])
     for i in video_list:
         i = int(i)
         url = video_parse(video['link'], i)
-        print(video['link'])
         t = threading.Thread(target=download, args=(url, video['name'] + str(i + 1)))
         t_list.append(t)
     print('下载中......')
